@@ -8,16 +8,15 @@ const routes = [
   {
     path: '/',
     name: 'Todo',
-    component: Todo,
+    component: Todo
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.the import function only executes when the route is visited. This is achieved by wrapping the import statement with the import() function and providing a comment /* webpackChunkName: "about" */. This comment tells the Webpack bundler to create a separate chunk file for the About.vue component, which will be loaded only when needed.
+    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-
   }
 ]
 
