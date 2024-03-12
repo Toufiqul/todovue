@@ -21,35 +21,56 @@ export default new Vuex.Store({
             title: 'Task 3',
             done: false
         }
-    ]
+    ],
+    snackbar: {
+        show:true,
+        text:"snackbar text"
+    }
   },
   getters: {
   },
   mutations: {
-
-    addTask(state,newTaskTitle){
-        let newTask ={id:Date.now(),
+    addTask(state, newTaskTitle) {
+      let newTask = {
+        id: Date.now(),
         title: newTaskTitle,
         done: false
-        }
-        state.tasks.push(newTask);
-    },       
-    doneTask(state,id){
-        // let task = this.tasks[id-1];
-        // task.done=!task.done;
-        // console.log(task);
-
-        let task = state.tasks.filter(task => task.id===id)[0];
-        task.done=!task.done;
+      }
+      state.tasks.push(newTask)
     },
-    deleteTask(state,id){
-        state.tasks = state.tasks.filter(task => task.id!==id);
-
+    doneTask(state, id) {
+      let task = state.tasks.filter(task => task.id === id)[0]
+      task.done = !task.done
+    },
+    deleteTask(state, id) {
+      state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    showSnackbar(state, text) {
+      let timeout = 0
+      if (state.snackbar.show) {
+        state.snackbar.show = false
+        timeout = 300
+      }
+      setTimeout(() => {
+        state.snackbar.show = true
+        state.snackbar.text = text
+      }, timeout)
+    },
+    hideSnackbar(state) {
+      state.snackbar.show = false
     }
-
   },
   actions: {
+    addTask({ commit }, newTaskTitle) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackbar', 'Task added!')
+    },
+    deleteTask({ commit }, id) {
+      commit('deleteTask', id)
+      commit('showSnackbar', 'Task deleted!')
+    }
   },
-  modules: {
+  getters: {
+
   }
 })
