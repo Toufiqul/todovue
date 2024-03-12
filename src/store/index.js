@@ -43,7 +43,8 @@ export default new Vuex.Store({
       task.done = !task.done
     },
     deleteTask(state, id) {
-      state.tasks = state.tasks.filter(task => task.id !== id)
+        state.tasks = state.tasks.filter(task => task.id !== id)
+        console.log("delete task mutation")
     },
     showSnackbar(state, text) {
       let timeout = 0
@@ -66,6 +67,7 @@ export default new Vuex.Store({
       commit('showSnackbar', 'Task added!')
     },
     deleteTask({ commit }, id) {
+        console.log("delete task action")
       commit('deleteTask', id)
       commit('showSnackbar', 'Task deleted!')
     }
