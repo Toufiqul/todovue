@@ -18,7 +18,7 @@
             Cancel
           </v-btn>
           <v-btn
-          @click="$store.dispatch('deleteTask','task.id')"
+          @click="$store.dispatch('deleteTask',task.id)"
             color="red darken-1"
             text
           >
@@ -32,6 +32,9 @@
 <script>
 export default {
     props:['task']
+// created() {
+//     console.log(this.task.id);
+//   }
 
 }
 </script>

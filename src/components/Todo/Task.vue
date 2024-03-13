@@ -24,26 +24,31 @@
     </v-list-item>
 
     <v-divider></v-divider>
-    <dialog-delete 
-    v-if="dialogs.delete" 
-    :tasks="task"
-    @close="dialogs.delete=false"/>
+    <dialog-delete
+      v-if="dialogs.delete"
+      @close="dialogs.delete = false"
+      :task="task"
+    />
   </div>
 </template>
 
 <script>
 export default {
-    props: ['task'],
-    data(){
-        return{
-        dialogs: {
-            delete: false
-        }
-    }
-    },
-    components: {
-        'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default
-    }
+  props: ["task"],
+  data() {
+    return {
+      dialogs: {
+        delete: false,
+      },
+    };
+  },
+//   created() {
+//     console.log(this.task.id);
+//   },
+  components: {
+    "dialog-delete": require("@/components/Todo/Dialogs/DialogDelete.vue")
+      .default,
+  },
 };
 </script>
 
