@@ -14,6 +14,7 @@
           @click="handleClick(index)"
         >
           <v-list-item-icon>
+            <!-- eslint-disable vue/no-v-text-v-html-on-component -->
             <v-icon v-text="item.icon"></v-icon>
           </v-list-item-icon>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -21,6 +22,10 @@
       </v-list>
     </v-menu>
 
+    <dialog-edit
+      v-if="dialogs.edit"
+      @close="dialogs.edit = false"
+    />
     <dialog-delete
       v-if="dialogs.delete"
       @close="dialogs.delete = false"
@@ -31,17 +36,18 @@
 
 <script>
 export default {
-    props: ["task"],
+  props: ["task"],
   data: () => ({
     dialogs: {
       delete: false,
+      edit: false,
     },
     items: [
       {
         title: "Edit",
         icon: "mdi-pencil",
         click() {
-          console.log("Edit");
+          this.dialogs.edit = true;
         },
       },
       {
@@ -66,9 +72,9 @@ export default {
     },
   },
   components: {
-    "dialog-delete": require("@/components/Todo/Dialogs/DialogDelete.vue")
-      .default,
-  }
+    "dialog-edit": require("@/components/Todo/Dialogs/DialogEdit.vue").default,
+    "dialog-delte": require("@/components/Todo/Dialogs/DialogDelete.vue").default
+  },
 };
 </script>
 
