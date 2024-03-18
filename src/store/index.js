@@ -22,12 +22,12 @@ export default new Vuex.Store({
             id: 3,
             title: 'Task 3',
             done: false,
-            dueDate: ''
+            dueDate: null
         }
     ],
     snackbar: {
-        show:true,
-        text:"snackbar text"
+        show: true,
+        text: ''
     }
   },
   getters: {
@@ -37,7 +37,8 @@ export default new Vuex.Store({
       let newTask = {
         id: Date.now(),
         title: newTaskTitle,
-        done: false
+        done: false,
+        dueDate: null
       }
       state.tasks.push(newTask)
     },
