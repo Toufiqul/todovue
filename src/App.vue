@@ -23,28 +23,33 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="primary" dark src="mountains.png" prominent>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      src="mountains.png"
+      prominent
+      height="170"
+    >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
           gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
         ></v-img>
       </template>
-      <v-container >
+      <v-container>
         <v-row>
-            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-spacer></v-spacer>
-            <search />
-
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search />
         </v-row>
         <v-row>
-      <v-toolbar-title class="ml-4">Vuetify Todo</v-toolbar-title>
-
+          <v-toolbar-title class="text-h4 ml-4">Vuetify Todo</v-toolbar-title>
+        </v-row>
+        <v-row>
+          <live-date-time />
         </v-row>
       </v-container>
-
-
-
     </v-app-bar>
 
     <v-main>
@@ -65,7 +70,8 @@ export default {
   }),
   components: {
     //keep key names correct
-    search: require("@/components/Tools/Search.vue").default, 
+    search: require("@/components/Tools/Search.vue").default,
+    "live-date-time": require("@/components/Tools/LiveDateTime.vue").default,
     snackbar: require("@/components/Shared/Snackbar.vue").default,
   },
 };
