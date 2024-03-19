@@ -59,6 +59,7 @@ export default {
     ],
   }),
   components: {
+    //keep key names correct
     search: require("@/components/Tools/Search.vue").default, 
     snackbar: require("@/components/Shared/Snackbar.vue").default,
   },
