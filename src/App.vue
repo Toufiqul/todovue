@@ -30,16 +30,21 @@
           gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
         ></v-img>
       </template>
+      <v-container >
+        <v-row>
+            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-spacer></v-spacer>
+            <search />
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        </v-row>
+        <v-row>
+      <v-toolbar-title class="ml-4">Vuetify Todo</v-toolbar-title>
 
-      <v-toolbar-title>Vuetify Todo</v-toolbar-title>
+        </v-row>
+      </v-container>
 
-      <v-spacer></v-spacer>
-        <search />
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+
+
     </v-app-bar>
 
     <v-main>
