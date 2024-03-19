@@ -36,23 +36,15 @@
       <v-toolbar-title>Vuetify Todo</v-toolbar-title>
 
       <v-spacer></v-spacer>
-
+        <search />
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
       <router-view></router-view>
-      <snackbar/>
+      <snackbar />
     </v-main>
   </v-app>
 </template>
@@ -66,8 +58,9 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
-  component: {
-    'snackbar': require("@/components/Shared/Snackbar.vue").default
+  components: {
+    search: require("@/components/Tools/Search.vue").default, 
+    snackbar: require("@/components/Shared/Snackbar.vue").default,
   },
 };
 </script>
