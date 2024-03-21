@@ -11,10 +11,10 @@
   >
     <template v-slot:append>
       <v-icon @click="addTask" color="primary" :disabled="newTaskTitleInvalid"
-        >mdi-plus</v-icon
-      >
-    </template></v-text-field
-  >
+        >mdi-plus
+        </v-icon>
+    </template>
+    </v-text-field>
 </template>
 
 <script>
