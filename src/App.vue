@@ -11,9 +11,9 @@
           <img src="avatar.JPG" alt="avatar" />
         </v-avatar>
         <div class="white--text text-subtitle-1 font-weight-bold">
-          user name
+          Kevo Kobayashi
         </div>
-        <div class="white--text text-subtitle-2">user_name</div>
+        <div class="white--text text-subtitle-2">kevo</div>
       </v-img>
 
       <v-divider></v-divider>
